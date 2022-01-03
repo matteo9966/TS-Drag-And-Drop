@@ -20,7 +20,52 @@
 }
 
 .column{
-    width: 10rem;
+    width: 14rem;
     min-height: 20rem;
     max-height: 100%;
+    margin-left: 0.4rem;
+    display: grid;
+    grid-template-rows:auto 1fr;
+    
+}
+
+.column-title{
+    display: block;
+    text-align: center;
+    padding:0.3rem;
+}
+
+.column-title>*{
+    border-bottom:1px solid aqua;
+}
+
+.column-body{
+    display: flex;
+    flex-direction: column;
+    
+    word-wrap: break-word
+   
+}
+
+.container{
+   
+    display: flex;
+    flex-grow: 1;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 139, 139, 0.733);
+    margin-top: 0.1rem;
+}
+
+.grid-container{
+    display: flex;
+}
+
+.form-container{
+    min-width:200px;
+    height: 100%;
+    border:1px solid brown;
 }

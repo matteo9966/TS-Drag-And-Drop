@@ -11,8 +11,9 @@ export abstract class BaseComponent<H extends HTMLElement,E extends HTMLElement>
         this.templateID=templateID;
         this.hostID=hostID;
         this.elementID=elementID;
-        this.host = document.querySelector(this.hostID)! as H;
-        this.template = document.querySelector(this.templateID)! as HTMLTemplateElement;
+        this.host=document.getElementById(this.hostID)! as H;
+        this.template=document.getElementById(this.templateID)! as HTMLTemplateElement;
+        // this.template = document.querySelector(this.templateID)! as HTMLTemplateElement;
         
         this.create();
         this.attach();
@@ -32,6 +33,8 @@ export abstract class BaseComponent<H extends HTMLElement,E extends HTMLElement>
       this.host.insertAdjacentElement('beforeend',this.element);   
     }
 
+    abstract configure(): void;
+    abstract renderContent(): void;  //ciascun elemento avrà un suo contenuto da rendere!
 
 
 

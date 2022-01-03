@@ -7,10 +7,31 @@
     <title>Document</title>
 </head>
 <body>
+  <!-- the container of the app -->
+<template id="main-container">
+  <div class="grid-container">
+     <div class="form-container">
+       <input type="button" value="Cliccami">
+     </div>
+    <div class="container" id="columns-container">
+  </div>
+  
+</div>
+</template>
     <!-- column is the column item -->
     <template id="column">
+
       <div class="card column">
-        
+         <section class="column-title" id="column-title"><h5>Titolo</h5></section>
+         <div class="column-body" id="column-body">Resto del corpo</div> 
+      </div>
+
+    </template>
+
+    <template id="item">
+      <div class="card item">
+        <div><p id="item-title"></p></div>
+        <div><p id="item-description"></p></div>     
       </div>
     </template>
     
