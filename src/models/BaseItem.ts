@@ -1,9 +1,11 @@
+const { v4: uuidV4 } = require('uuid');
 export abstract class BaseItem {
     ItemID:string;
     name:string;
     
-    constructor(ItemID:string,name:string){
-        this.ItemID=ItemID;
+    constructor(name:string){
+        this.ItemID=uuidV4();
+        // this.ItemID=ItemID;
         this.name=name;
         
         

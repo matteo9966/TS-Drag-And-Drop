@@ -2,6 +2,7 @@ import { BaseComponent } from "./base-component";
 import { stateInstance } from "../state/global-state";
 import { ColumnComponent } from "./column-component";
 import { Column } from "../models/Column";
+import {FormComponent} from './form-component';
 export class ContainerComponent extends BaseComponent<
   HTMLDivElement,
   HTMLDivElement
@@ -18,11 +19,16 @@ export class ContainerComponent extends BaseComponent<
     throw new Error("Method not implemented.");
   }
   renderContent(): void {
-    
-
+    //devo aggiungere il listener al form
+    //qui dentro posso fare il render del form???
+     this.createForm();
     stateInstance.addListener((state) => {
       this.renderColumns(state.columns);
     });
+  }
+
+  createForm(){
+    return new FormComponent();
   }
 
   renderColumns(columns: Column[]) {

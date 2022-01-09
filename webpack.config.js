@@ -36,6 +36,15 @@ const config = {
                 exclude: ['/node_modules/'],
             },
             {
+                test: /\.(scss)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                    'sass-loader'
+                ]
+            },
+            {
                 test: /\.css$/i,
                 use: [stylesHandler,'css-loader'],
             },

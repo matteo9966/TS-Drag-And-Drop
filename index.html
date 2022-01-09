@@ -9,11 +9,22 @@
 <body>
   <!-- the container of the app -->
 <template id="main-container">
-  <div class="grid-container">
-     <div class="form-container">
-       <input type="button" value="Cliccami">
+  <div class="grid-container" >
+     
+       <div class="form-container" id="form-container"  >
+
+         <!-- <form >
+           <div class="mb-3">
+             <label for="exampleInputEmail1" class="form-label">Column Title:</label>
+             <input type="text" class="form-control" id="column-title" aria-describedby="emailHelp">
+             <div id="column-helper" class="form-text">Choose a name for your column</div>
+           </div>
+           <button type="submit" class="btn btn-primary">Add</button>
+         </form> -->
+       
      </div>
-    <div class="container" id="columns-container">
+    <div class="column-container"  >
+      <div class="scrollable-container" id="columns-container" ></div>
   </div>
   
 </div>
@@ -33,6 +44,18 @@
         <div><p id="item-title"></p></div>
         <div><p id="item-description"></p></div>     
       </div>
+    </template>
+
+    <template id="add-column-template">
+      <form id="add-column-form">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Column Title:</label>
+          <input type="text" class="form-control" id="column-title" aria-describedby="emailHelp">
+          <div id="column-helper" class="form-text">Choose a name for your column</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+
     </template>
     
 

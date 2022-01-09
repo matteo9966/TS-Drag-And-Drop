@@ -27,8 +27,8 @@ export class ColumnComponent extends BaseComponent<
 
   configure() {
     console.log("configuro la colonna");
-    stateInstance.addListener((state) => {
-      console.log(state);
+    stateInstance.addListener((_) => {
+     
     });
   }
   renderContent(): void {

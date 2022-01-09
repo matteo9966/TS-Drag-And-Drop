@@ -1,0 +1,25 @@
+@import "~bootstrap/scss/bootstrap";
+
+.card{
+    padding:0.5rem;
+   
+}
+.column{
+    width: 14rem;
+    min-height: 25rem;
+    max-height: 100%;
+    margin-left: 0.4rem;
+    display: grid;
+    grid-template-rows:auto 1fr;
+    min-width: 14rem;
+    
+}
+.form-container{
+    width:16rem;
+    min-width:16rem;
+    height: 100%;
+    padding: 1rem;
+    
+}
+
+

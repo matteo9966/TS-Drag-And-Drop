@@ -11,23 +11,8 @@
     padding:5px;
 }
 
-.card{
-    position: relative;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    padding: 2px 16px;
-    
-}
 
-.column{
-    width: 14rem;
-    min-height: 20rem;
-    max-height: 100%;
-    margin-left: 0.4rem;
-    display: grid;
-    grid-template-rows:auto 1fr;
-    
-}
+
 
 .column-title{
     display: block;
@@ -47,10 +32,19 @@
    
 }
 
-.container{
-   
+.column-container{
     display: flex;
     flex-grow: 1;
+    
+   
+    max-width:100%;
+    
+    overflow-x: scroll;
+    
+}
+
+.scrollable-container{
+    display: flex;
 }
 
 .item{
@@ -62,10 +56,9 @@
 
 .grid-container{
     display: flex;
+    justify-content: flex-start;
+    
+    
+    margin:0;
 }
 
-.form-container{
-    min-width:200px;
-    height: 100%;
-    border:1px solid brown;
-}

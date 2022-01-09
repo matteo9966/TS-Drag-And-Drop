@@ -7,12 +7,14 @@ export type statetype={
     columns:Column[];
 }
 
+
+
  class State{
     protected _state!:statetype;
     protected listeners:ListenerFunction<statetype>[] =[]
     
     addListener(listener:ListenerFunction<statetype>){
-        console.log('ho aggiunto il listener:',listener.toString());
+        
         this.listeners.push(listener);
     }
 
@@ -25,8 +27,8 @@ export type statetype={
         if(this._state){
 
             this.listeners.forEach(listener=>{
-                console.log("eseguo listener. con: ",listener.toString())
-                listener(this.state)}) //passo lo stato.
+                
+                listener(this._state)}) //passo lo stato.
         }
     }
 
@@ -34,9 +36,13 @@ export type statetype={
        this._state=state;
        this.updateListeners();
     }
+
+    
+
+    
 }
 
- class GlobalState extends State{ //non è di tipo project state
+ class GlobalState extends State{ 
   private static insance:GlobalState;
   private constructor(){
    super();
@@ -50,6 +56,11 @@ public static getInstance(){
     return  this.insance;
 }
 
+
+addColumn(column:Column){
+    this.state.columns.push(column);
+    this.setState(this.state) //this.state è una copia dello state non è quello aggiornato
+}
 
 }
 
