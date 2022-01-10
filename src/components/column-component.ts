@@ -1,53 +1,72 @@
 import { BaseComponent } from "./base-component";
 import { Column } from "../models/Column";
-import { Item } from "../models/Item";
-import { statetype } from "../state/global-state";
 import { stateInstance } from "../state/global-state";
 import { ItemComponent } from "./item-component";
-function filterItems(state: statetype, columnID?: string): Item[] {
-  if (!columnID) {
-    return [];
-  }
-  const items = state.items.filter((item) => item.columnID === columnID);
-  return items;
-}
-
+import { titleValidator } from "../helperFunctions/Validation/titleValidation";
 export class ColumnComponent extends BaseComponent<
   HTMLDivElement,
   HTMLDivElement
 > {
   private column: Column;
+  private columnItemsContainer:HTMLDivElement;
+  private formElement:HTMLFormElement;
+
+  private columnContainerID:string;
   constructor(column: Column,hostID:string) {
     super("column", hostID, column.ItemID);
+    this.columnItemsContainer=this.element.querySelector('.column-body')!
+    this.formElement=this.element.querySelector('form')!;
     this.column = column;
-    this.renderItems();
+    this.columnContainerID=this.elementID+'-container'
+    // this.renderItems();
     this.configure();
+    this.renderContent();
+
     //devo fare il render degli items.
   }
 
   configure() {
-    console.log("configuro la colonna");
-    stateInstance.addListener((_) => {
-     
+   
+    this.columnItemsContainer.id=this.columnContainerID;
+    this.configureForm();
+    // console.log("aggiunto il listener per colonna")
+   this.column.listenerIndex= stateInstance.addListener(() => { //#FIXME: questo non va bene!
+      this.renderItems();
+      
     });
+    console.log('added a listener with index: '+this.column.listenerIndex);
   }
   renderContent(): void {
     const title = this.element.querySelector("#column-title");
     title!.innerHTML = this.column.name;
     this.renderItems();
+    
+    
   }
 
   private renderItems() {
-    const items = filterItems(stateInstance.state, this.column.ItemID);
-
-    const title = this.element.querySelector("#column-title");
-    title!.innerHTML = this.column.name;
-    const columnContainer = this.element.querySelector("#column-body")!;
-    columnContainer.innerHTML = "";
-    const containerID = this.column.ItemID + "-container";
-    columnContainer.id = containerID;
+      
+    const items = stateInstance.filterItems(this.column.ItemID) /* filterItems(stateInstance.state, this.column.ItemID); */
+    // console.log(items,this.columnContainerID)
+    this.columnItemsContainer.innerHTML="";
     items.forEach((item) => {
-      new ItemComponent(item, containerID);
+      // console.log('item presente nella colonna: ',item)
+      new ItemComponent(item, this.columnContainerID);
     });
+  }
+  
+  private formSubmitHandler(e:SubmitEvent){
+    e.preventDefault();
+    const title=(this.formElement.querySelector('#form-title-input') as HTMLInputElement)!.value;
+    const description =(this.formElement.querySelector('#form-description-input') as HTMLTextAreaElement)!.value;
+    if(titleValidator(title)){
+        stateInstance.addItem(title,this.column.ItemID,description);
+        // console.log(this.columnContainerID,title);
+    }
+    
+  }
+   
+  private configureForm(){
+    this.formElement.addEventListener('submit',this.formSubmitHandler.bind(this))
   }
 }

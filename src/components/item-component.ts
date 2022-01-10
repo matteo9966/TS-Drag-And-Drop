@@ -4,6 +4,7 @@ export class ItemComponent extends BaseComponent<HTMLDivElement,HTMLDivElement>{
    private item:Item
    constructor(item:Item,hostId:string,){
        super('item',hostId,item.ItemID)
+      
        this.item=item;
        this.renderContent();
    }

@@ -13,6 +13,7 @@ const stylesHandler = 'style-loader';
 
 const config = {
     entry: './src/index.ts',
+    devtool:  'eval-cheap-module-source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
     },

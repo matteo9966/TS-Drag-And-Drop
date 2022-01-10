@@ -13,14 +13,7 @@
      
        <div class="form-container" id="form-container"  >
 
-         <!-- <form >
-           <div class="mb-3">
-             <label for="exampleInputEmail1" class="form-label">Column Title:</label>
-             <input type="text" class="form-control" id="column-title" aria-describedby="emailHelp">
-             <div id="column-helper" class="form-text">Choose a name for your column</div>
-           </div>
-           <button type="submit" class="btn btn-primary">Add</button>
-         </form> -->
+   
        
      </div>
     <div class="column-container"  >
@@ -35,9 +28,26 @@
       <div class="card column">
          <section class="column-title" id="column-title"><h5>Titolo</h5></section>
          <div class="column-body" id="column-body">Resto del corpo</div> 
+         <div >
+          <form class="mx-1" id="add-item-form" >
+            <div class="mb-1">
+              <input class="form-control form-control-sm" id="form-title-input" type="text" placeholder="Choose title..." aria-label="item-title">
+            
+            </div>
+            <div class="mb-1">
+              <textarea class="form-control" id="form-description-input" rows="2" style="overflow:auto;resize:none"></textarea>
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-primary" type="submit">Add Item</button>
+            </div>
+    
+    
+          </form>
+         </div>
       </div>
 
     </template>
+    
 
     <template id="item">
       <div class="card item">
@@ -50,7 +60,7 @@
       <form id="add-column-form">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Column Title:</label>
-          <input type="text" class="form-control" id="column-title" aria-describedby="emailHelp">
+          <input type="text" class="form-control" id="column-title-id" aria-describedby="column-Title-Input" name="column-title">
           <div id="column-helper" class="form-text">Choose a name for your column</div>
         </div>
         <button type="submit" class="btn btn-primary">Add</button>
