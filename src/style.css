@@ -27,7 +27,6 @@
 .column-body{
     display: flex;
     flex-direction: column;
-    border:1px solid magenta;
     word-wrap: break-word;
     margin-bottom:0.1rem;
     overflow-y:scroll;

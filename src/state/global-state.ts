@@ -84,6 +84,16 @@ addItem(title:string,columnId:string,description=""){
  
 }
 
+moveItem(colID:string,itemID:string){
+    const newState = this.cloneState();
+    const itemIndex = newState.items.findIndex(item=>item.ItemID===itemID);
+    if(itemIndex>=0){
+        newState.items[itemIndex].columnID=colID;
+        this.setState(newState);
+    }
+
+}
+
 filterItems( columnID?: string): Item[] {
     if (!columnID) {
       return [];

@@ -1,75 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-  <!-- the container of the app -->
-<template id="main-container">
-  <div class="grid-container" >
-     
-       <div class="form-container" id="form-container"  >
-
-   
-       
-     </div>
-    <div class="column-container"  >
-      <div class="scrollable-container" id="columns-container" ></div>
-  </div>
-  
-</div>
-</template>
+  </head>
+  <body>
+    <!-- the container of the app -->
+    <template id="main-container">
+      <div class="grid-container">
+        <div class="form-container" id="form-container"></div>
+        <div class="column-container">
+          <div class="scrollable-container" id="columns-container"></div>
+        </div>
+      </div>
+    </template>
     <!-- column is the column item -->
     <template id="column">
-
       <div class="card column">
-         <section class="column-title" id="column-title"><h5>Titolo</h5></section>
-         <div class="column-body" id="column-body">Resto del corpo</div> 
-         <div >
-          <form class="mx-1" id="add-item-form" >
+        <section class="column-title" id="column-title">
+          <h5>Titolo</h5>
+        </section>
+        <div class="column-body" id="column-body">Resto del corpo</div>
+        <div>
+          <form class="mx-1" id="add-item-form">
             <div class="mb-1">
-              <input class="form-control form-control-sm" id="form-title-input" type="text" placeholder="Choose title..." aria-label="item-title">
-            
+              <input
+                class="form-control form-control-sm"
+                id="form-title-input"
+                type="text"
+                placeholder="Choose title..."
+                aria-label="item-title"
+              />
             </div>
             <div class="mb-1">
-              <textarea class="form-control" id="form-description-input" rows="2" style="overflow:auto;resize:none"></textarea>
+              <textarea
+                class="form-control"
+                id="form-description-input"
+                rows="2"
+                style="overflow: auto; resize: none"
+              ></textarea>
             </div>
             <div class="d-grid">
               <button class="btn btn-primary" type="submit">Add Item</button>
             </div>
-    
-    
           </form>
-         </div>
+        </div>
       </div>
-
     </template>
-    
 
     <template id="item">
-      <div class="card item">
-        <div><p id="item-title"></p></div>
-        <div><p id="item-description"></p></div>     
+      <div class="card item p-1 shadow-sm mx-1" draggable="true">
+         <p id="item-title" class="mb-1" ></p>
+       <p id="item-description" class="fs-6 fw-lighter p-0 mt-0 card-text"></p>
       </div>
     </template>
 
     <template id="add-column-template">
       <form id="add-column-form">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Column Title:</label>
-          <input type="text" class="form-control" id="column-title-id" aria-describedby="column-Title-Input" name="column-title">
-          <div id="column-helper" class="form-text">Choose a name for your column</div>
+          <label for="exampleInputEmail1" class="form-label"
+            >Column Title:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="column-title-id"
+            aria-describedby="column-Title-Input"
+            name="column-title"
+          />
+          <div id="column-helper" class="form-text">
+            Choose a name for your column
+          </div>
         </div>
         <button type="submit" class="btn btn-primary">Add</button>
       </form>
-
     </template>
-    
 
     <!-- div app will be the container of the app -->
-    <div id="app"></div> 
-</body>
+    <div id="app"></div>
+  </body>
 </html>

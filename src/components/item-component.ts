@@ -9,6 +9,9 @@ export class ItemComponent extends BaseComponent<HTMLDivElement,HTMLDivElement>{
        this.renderContent();
    }
    
+   onDragStart(event:DragEvent){
+       event.dataTransfer?.setData('text/plain',this.item.ItemID)
+   }
    
    
     configure(): void {
@@ -19,7 +22,7 @@ export class ItemComponent extends BaseComponent<HTMLDivElement,HTMLDivElement>{
          const item = document.getElementById(this.item.ItemID)!
          item.querySelector("#item-title")!.innerHTML=this.item.name;
          item.querySelector("#item-description")!.innerHTML=this.item.description;
-
+         item.addEventListener('dragstart',this.onDragStart.bind(this))
 
     }
  

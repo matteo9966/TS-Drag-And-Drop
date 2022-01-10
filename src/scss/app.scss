@@ -1,3 +1,4 @@
+@import'./myStyles.scss';
 @import "~bootstrap/scss/bootstrap";
 
 .card{
@@ -18,8 +19,7 @@
     width:16rem;
     min-width:16rem;
     height: 100%;
-    padding: 1rem;
-    
+    padding: 1rem;   
 }
 
 

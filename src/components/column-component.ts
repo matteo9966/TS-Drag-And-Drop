@@ -34,7 +34,7 @@ export class ColumnComponent extends BaseComponent<
       this.renderItems();
       
     });
-    console.log('added a listener with index: '+this.column.listenerIndex);
+    this.configureDroppableArea();
   }
   renderContent(): void {
     const title = this.element.querySelector("#column-title");
@@ -65,8 +65,27 @@ export class ColumnComponent extends BaseComponent<
     }
     
   }
+
+  onDragOver(event:DragEvent){
+      event.preventDefault();
+  }
+
+  onDropItem(event:DragEvent){
+    const id = event.dataTransfer!.getData('text');
+    if(id && this.elementID){
+      stateInstance.moveItem(this.elementID,id)
+    }
+
+  
+    //ora che  ho id del elemento che voglio droppare posso fare il rerender,
+
+  }
    
   private configureForm(){
     this.formElement.addEventListener('submit',this.formSubmitHandler.bind(this))
+  }
+  private configureDroppableArea(){
+    this.columnItemsContainer.addEventListener('dragover',this.onDragOver)
+    this.columnItemsContainer.addEventListener('drop',this.onDropItem.bind(this));
   }
 }
